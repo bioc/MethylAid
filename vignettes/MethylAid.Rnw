@@ -9,15 +9,15 @@
 BiocStyle::latex()
 @
 
-\author{Maarten van Iterson, Elmar Tobi, Roderick Slieker, 
-        Wouter den Hollander, Rene Luijk,
-  \\Eline Slagboom and Bas Heijmans
-  \\Department of Molecular Epidemiology,
+\author{Maarten van Iterson, Davy Cats, Bas Heijmans
+  \\Molecular Epidemiology, Department of Biomedical Data Sciences,
   \\Leiden University Medical Center, Leiden, The Netherlands}
 
-\title{MethylAid: Visual and Interactive quality control of Illumina Human DNA Methylation array data}
+\title{MethylAid: Visual and Interactive quality control of Illumina Human DNA 
+Methylation array data}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 \maketitle
 
@@ -90,10 +90,24 @@ visualize(data)
 \bioccomment{\Rfunction{visualize} can only be called interactively from within
 a \R{} session.}
 
-\section{Example using presummarized 450k data}
+Or in the same way using \Biocpkg{minfi}'s EPIC data set from the
+package \biocpkg{minfiDataEPIC}.
+
+<<minfiDatatargets, cache=TRUE, message=FALSE, eval=FALSE>>=
+library(MethylAid)
+library(minfiDataEPIC)
+baseDir <- system.file("extdata", package = "minfiDataEPIC")
+targets <- read.metharray.sheet(baseDir)
+data <- summarize(targets)
+visualize(data)
+@ 
+
+\section{Example using presummarized DNA Methylation array data}
 
 For those who directly want to explore the web application we have presummarized
-450k data on 500 samples.
+450k data on 500 samples. \Biocpkg{MethylAid} will automatically detect whether
+the data is from a 450k array or EPIC array. Therefore, using EPIC data can be 
+used in exactly the same way.
 
 <<presummarized, message=FALSE, eval=FALSE>>=
 library(MethylAid)
@@ -241,12 +255,13 @@ least set your email address in \Rcode{scripts/summarize.sh} and use the proper
 \subsection{User-defined thresholds}
 \Biocpkg{MethylAid} uses pre-defined thresholds in the filter control plots to
 determine outlying samples. These thresholds are based on experience with
-several 450k data sets that were analysed in the Department of Molecular
-Epidemiology (Leiden University Medical Center). The values of these thresholds
-are further supported by a large reference set available from the
-\Biocpkg{MethylAidData}-package. However, if one wished to use customised
-thresholds, e.g. for hydroxymethylation data, these can be given as arguments the
-the \Rfunction{visualize}-function.
+several Methylation Array data sets that were analysed in the Department of 
+Molecular Epidemiology (Leiden University Medical Center), School of Biological 
+Sciences (University of Essex) and the Faculty of Medicine (University of 
+Southhampton). The values of these thresholds are further supported by large 
+reference sets available from the \Biocpkg{MethylAidData}-package. However, if 
+one wished to use customised thresholds, e.g. for hydroxymethylation data, 
+these can be given as arguments to the \Rfunction{visualize}-function.
 
 <<thresholds, eval=FALSE>>=
 visualize(exampleData,  
@@ -256,7 +271,8 @@ visualize(exampleData,
 
 \subsection{Generating your own reference dataset}
 The \Biocpkg{MethylAidData}-package provides a reference dataset on 2800
-samples. A reference data set can be used to compare with another data set.
+samples and a reference dataset on 2620 EPIC samples. A reference data set can 
+be used to compare with another data set.
 For example, call \Rfunction{visualize} with the argument \Rcode{background} as
 shown below.
 

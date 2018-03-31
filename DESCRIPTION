@@ -2,8 +2,8 @@ Package: MethylAid
 Type: Package
 Title: Visual and interactive quality control of large Illumina DNA
        Methylation array data sets
-Version: 1.13.0
-Date: 2017-05-09
+Version: 1.13.1
+Date: 2018-31-03
 Authors@R: c(person("Maarten", "van Iterson",
         email="mviterson@gmail.com", role="cre"),
 	person("Elmar", "Tobi", role="ctb"),
@@ -58,5 +58,6 @@ Suggests:
     knitr,
     MethylAidData,
     minfiData,
+    minfiDataEPIC
     RUnit
 RoxygenNote: 6.0.1

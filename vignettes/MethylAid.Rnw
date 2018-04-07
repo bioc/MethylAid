@@ -17,7 +17,14 @@ BiocStyle::latex()
 Methylation array data}
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE
+)
+@
+
 
 \maketitle
 
@@ -91,9 +98,9 @@ visualize(data)
 a \R{} session.}
 
 Or in the same way using \Biocpkg{minfi}'s EPIC data set from the
-package \biocpkg{minfiDataEPIC}.
+package \Biocexptpkg{minfiDataEPIC}.
 
-<<minfiDatatargets, cache=TRUE, message=FALSE, eval=FALSE>>=
+<<minfiDataEPIC, cache=TRUE, message=FALSE, eval=FALSE>>=
 library(MethylAid)
 library(minfiDataEPIC)
 baseDir <- system.file("extdata", package = "minfiDataEPIC")

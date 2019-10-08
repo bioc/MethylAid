@@ -2,8 +2,8 @@ Package: MethylAid
 Type: Package
 Title: Visual and interactive quality control of large Illumina DNA
        Methylation array data sets
-Version: 1.19.0
-Date: 2018-07-04
+Version: 1.19.1
+Date: 2019-10-07
 Authors@R: c(person("Maarten", "van Iterson",
         email="mviterson@gmail.com", role="cre"),
 	person("Elmar", "Tobi", role="ctb"),
@@ -14,7 +14,7 @@ Authors@R: c(person("Maarten", "van Iterson",
 Author: Maarten van Iterson [aut, cre], Elmar Tobi[ctb],
         Roderick Slieker[ctb], Wouter den Hollander[ctb],
 	Rene Luijk[ctb] and Bas Heijmans[ctb]
-Maintainer: M. van Iterson <mviterson@gmail.com>
+Maintainer: L.J.Sinke <L.J.Sinke@lumc.nl>
 Description: A visual and interactive web application using RStudio's
     shiny package. Bad quality samples are detected using
     sample-dependent and sample-independent controls present on the
